@@ -55,14 +55,14 @@ export default {
 				},
 				// Custom portfolio colors
 				pm: {
-					dark: "#1A1F2C",
-					darker: "#151921",
-					charcoal: "#221F26",
-					purple: "#9b87f5",
-					purpleDark: "#7E69AB",
-					blue: "#1EAEDB",
-					gray: "#8E9196",
-					lightGray: "#D1D5DB",
+					dark: "#0F172A", // Dark blue background
+					darker: "#070F1C", // Deeper blue for sections
+					charcoal: "#1E293B", // Slate blue for cards
+					blue: "#3B82F6", // Bright blue for primary actions
+					lightBlue: "#60A5FA", // Lighter blue accent
+					teal: "#06B6D4", // Teal accent
+					gray: "#94A3B8", // Slate gray
+					lightGray: "#CBD5E1", // Light slate
 				},
 			},
 			borderRadius: {

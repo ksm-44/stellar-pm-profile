@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Download, Award, GraduationCap, Briefcase, BookOpen, Medal } from 'lucide-react';
+import { Download, Award, GraduationCap, Briefcase, BookOpen, Medal, ExternalLink } from 'lucide-react';
 
 const ResumeSection = () => {
   const [downloadTooltip, setDownloadTooltip] = useState(false);
@@ -57,10 +57,10 @@ const ResumeSection = () => {
           <TabsContent value="experience" className="glass-card rounded-xl p-6 md:p-8 animate-slide-in">
             <h3 className="text-2xl font-bold mb-6">Professional Experience</h3>
             <div className="space-y-8">
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <div className="mb-2">
-                  <span className="text-sm text-pm-purple bg-pm-purple/10 px-3 py-1 rounded-full">2022 - Present</span>
+                  <span className="text-sm text-pm-blue bg-pm-blue/10 px-3 py-1 rounded-full">2022 - Present</span>
                 </div>
                 <h4 className="text-xl font-bold">Senior Product Manager</h4>
                 <p className="text-pm-gray">Tech Innovations Inc.</p>
@@ -75,10 +75,10 @@ const ResumeSection = () => {
                 </ul>
               </div>
               
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <div className="mb-2">
-                  <span className="text-sm text-pm-purple bg-pm-purple/10 px-3 py-1 rounded-full">2019 - 2022</span>
+                  <span className="text-sm text-pm-blue bg-pm-blue/10 px-3 py-1 rounded-full">2019 - 2022</span>
                 </div>
                 <h4 className="text-xl font-bold">Product Manager</h4>
                 <p className="text-pm-gray">Digital Solutions Co.</p>
@@ -98,10 +98,10 @@ const ResumeSection = () => {
           <TabsContent value="education" className="glass-card rounded-xl p-6 md:p-8 animate-slide-in">
             <h3 className="text-2xl font-bold mb-6">Educational Background</h3>
             <div className="space-y-8">
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <div className="mb-2">
-                  <span className="text-sm text-pm-purple bg-pm-purple/10 px-3 py-1 rounded-full">2017 - 2019</span>
+                  <span className="text-sm text-pm-blue bg-pm-blue/10 px-3 py-1 rounded-full">2017 - 2019</span>
                 </div>
                 <h4 className="text-xl font-bold">Master of Business Administration</h4>
                 <p className="text-pm-gray">Stanford University</p>
@@ -110,10 +110,10 @@ const ResumeSection = () => {
                 </p>
               </div>
               
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <div className="mb-2">
-                  <span className="text-sm text-pm-purple bg-pm-purple/10 px-3 py-1 rounded-full">2013 - 2017</span>
+                  <span className="text-sm text-pm-blue bg-pm-blue/10 px-3 py-1 rounded-full">2013 - 2017</span>
                 </div>
                 <h4 className="text-xl font-bold">Bachelor of Science in Computer Science</h4>
                 <p className="text-pm-gray">Massachusetts Institute of Technology</p>
@@ -137,7 +137,7 @@ const ResumeSection = () => {
                         <span className="text-sm text-pm-gray">Advanced</span>
                       </div>
                       <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-pm-purple to-pm-blue h-2 rounded-full" style={{ width: '90%' }}></div>
+                        <div className="bg-gradient-to-r from-pm-blue to-pm-teal h-2 rounded-full" style={{ width: '90%' }}></div>
                       </div>
                     </div>
                   ))}
@@ -160,7 +160,7 @@ const ResumeSection = () => {
                         <span className="text-sm text-pm-gray">{skill.level}</span>
                       </div>
                       <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-pm-purple to-pm-blue h-2 rounded-full" style={{ width: skill.percent }}></div>
+                        <div className="bg-gradient-to-r from-pm-blue to-pm-teal h-2 rounded-full" style={{ width: skill.percent }}></div>
                       </div>
                     </div>
                   ))}
@@ -192,45 +192,60 @@ const ResumeSection = () => {
                   name: "Certified Scrum Product Owner (CSPO)",
                   issuer: "Scrum Alliance",
                   date: "2021",
-                  icon: "🏆"
+                  icon: "🏆",
+                  url: "https://www.scrumalliance.org/certifications/practitioners/certified-scrum-product-owner"
                 },
                 {
                   name: "Professional Product Manager (PPM)",
                   issuer: "Product School",
                   date: "2020",
-                  icon: "🎓"
+                  icon: "🎓",
+                  url: "https://productschool.com/product-management-certification/"
                 },
                 {
                   name: "Product Analytics Certification",
                   issuer: "Mixpanel University",
                   date: "2020",
-                  icon: "📊"
+                  icon: "📊",
+                  url: "https://mixpanel.com/education/"
                 },
                 {
                   name: "Advanced Product Strategy",
                   issuer: "Product Management Institute",
                   date: "2019",
-                  icon: "📈"
+                  icon: "📈",
+                  url: "https://productmanagementinstitute.org/"
                 },
                 {
                   name: "UX Design for Product Managers",
                   issuer: "Nielsen Norman Group",
                   date: "2018",
-                  icon: "🎨"
+                  icon: "🎨",
+                  url: "https://www.nngroup.com/ux-certification/"
                 },
                 {
                   name: "Agile Project Management",
                   issuer: "PMI",
                   date: "2017",
-                  icon: "⚡"
+                  icon: "⚡",
+                  url: "https://www.pmi.org/certifications/agile-certifications"
                 }
               ].map((cert) => (
-                <div key={cert.name} className="glass-card p-5 rounded-lg flex items-start">
+                <div key={cert.name} className="glass-card p-5 rounded-lg flex items-start group hover:shadow-lg transition-all duration-300">
                   <div className="text-3xl mr-4">{cert.icon}</div>
-                  <div>
+                  <div className="flex-1">
                     <h4 className="text-lg font-bold">{cert.name}</h4>
                     <p className="text-pm-gray text-sm">{cert.issuer} • {cert.date}</p>
                   </div>
+                  <a 
+                    href={cert.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-pm-blue hover:text-pm-teal transition-colors p-2 opacity-0 group-hover:opacity-100" 
+                    aria-label={`View ${cert.name} certificate`}
+                  >
+                    <ExternalLink size={18} />
+                  </a>
                 </div>
               ))}
             </div>
@@ -240,8 +255,8 @@ const ResumeSection = () => {
             <h3 className="text-2xl font-bold mb-6">Leadership & Extracurricular</h3>
             
             <div className="space-y-8">
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <h4 className="text-xl font-bold">Product Management Mentor</h4>
                 <p className="text-pm-gray">Product School</p>
                 <p className="mt-2 text-gray-300">
@@ -249,8 +264,8 @@ const ResumeSection = () => {
                 </p>
               </div>
               
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <h4 className="text-xl font-bold">Conference Speaker</h4>
                 <p className="text-pm-gray">Various Tech & Product Conferences</p>
                 <p className="mt-2 text-gray-300">
@@ -258,8 +273,8 @@ const ResumeSection = () => {
                 </p>
               </div>
               
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <h4 className="text-xl font-bold">Volunteer Product Consultant</h4>
                 <p className="text-pm-gray">Tech for Good Initiative</p>
                 <p className="mt-2 text-gray-300">
@@ -267,8 +282,8 @@ const ResumeSection = () => {
                 </p>
               </div>
               
-              <div className="border-l-2 border-pm-purple pl-6 relative">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-purple"></div>
+              <div className="border-l-2 border-pm-blue pl-6 relative">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-pm-blue"></div>
                 <h4 className="text-xl font-bold">Hackathon Judge</h4>
                 <p className="text-pm-gray">Regional Technology Competitions</p>
                 <p className="mt-2 text-gray-300">
