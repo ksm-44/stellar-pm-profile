@@ -61,11 +61,11 @@
   }
   
   .btn-primary {
-    @apply px-6 py-2.5 bg-pm-blue hover:bg-pm-blue/90 text-white rounded-md transition-all duration-300 font-medium;
+    @apply px-6 py-2.5 bg-pm-blue hover:bg-pm-blue/90 text-white rounded-md transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:translate-y-[-2px];
   }
   
   .btn-secondary {
-    @apply px-6 py-2.5 bg-transparent border border-pm-blue text-pm-blue hover:bg-pm-blue/10 rounded-md transition-all duration-300 font-medium;
+    @apply px-6 py-2.5 bg-transparent border border-pm-blue text-pm-blue hover:bg-pm-blue/10 rounded-md transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:translate-y-[-2px];
   }
   
   .section-heading {
@@ -85,6 +85,39 @@
     content: "";
     @apply absolute left-0 top-2.5 w-2 h-2 bg-pm-blue rounded-full;
   }
+  
+  /* Added hover effects for interactive elements */
+  .interactive-card {
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
+  }
+  
+  .gradient-border {
+    @apply relative rounded-xl;
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(to right, #3B82F6, #06B6D4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+  
+  .certification-card {
+    @apply glass-card rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl;
+  }
+  
+  .certification-image {
+    @apply h-48 w-full object-cover object-center;
+  }
 }
 
 @layer utilities {
@@ -96,5 +129,27 @@
   
   .text-gradient {
     @apply bg-gradient-to-r from-pm-blue to-pm-teal bg-clip-text text-transparent;
+  }
+  
+  .animate-float {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
   }
 }

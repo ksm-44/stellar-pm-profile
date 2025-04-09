@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Users, Target, Lightbulb, BarChart, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Calendar, Users, Target, Lightbulb, BarChart, CheckCircle, ExternalLink } from 'lucide-react';
 import { toast } from "sonner";
 
 // Project type definition
@@ -18,6 +18,7 @@ type ProjectDetail = {
   team: string;
   tools: string[];
   keyFeatures: string[];
+  demoUrl?: string;
   testimonial?: {
     quote: string;
     author: string;
@@ -51,6 +52,7 @@ const projectsData: ProjectDetail[] = [
       "Enterprise-grade security",
       "API integrations with 20+ systems"
     ],
+    demoUrl: "https://example.com/enterprise-saas",
     testimonial: {
       quote: "This platform transformed how our company manages workflows across departments. The analytics alone saved us hundreds of hours in reporting time.",
       author: "Sarah Johnson",
@@ -221,7 +223,7 @@ const ProjectDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-page flex items-center justify-center pt-16">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pm-purple"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pm-blue"></div>
       </div>
     );
   }
@@ -242,19 +244,33 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-page pt-20 pb-16">
       <div className="container mx-auto px-4 md:px-6">
-        <Link to="/#projects" className="inline-flex items-center text-pm-purple hover:text-pm-blue transition-colors mb-8">
+        <Link to="/#projects" className="inline-flex items-center text-pm-blue hover:text-pm-teal transition-colors mb-8">
           <ArrowLeft size={16} className="mr-2" />
           Back to Projects
         </Link>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{project.title}</h1>
-            <span className="inline-block bg-pm-purple/20 text-pm-purple px-3 py-1 rounded-full text-sm mb-6">
+            <div className="flex flex-wrap items-center justify-between mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-white">{project.title}</h1>
+              {project.demoUrl && (
+                <a 
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary flex items-center gap-2 mt-2 md:mt-0"
+                >
+                  <span>View Demo</span>
+                  <ExternalLink size={16} />
+                </a>
+              )}
+            </div>
+            
+            <span className="inline-block bg-pm-blue/20 text-pm-blue px-3 py-1 rounded-full text-sm mb-6">
               {project.category}
             </span>
             
-            <div className="glass-card rounded-xl overflow-hidden mb-8">
+            <div className="glass-card rounded-xl overflow-hidden mb-8 transform hover:scale-[1.01] transition-all duration-300">
               <img 
                 src={project.image} 
                 alt={project.title} 
@@ -263,35 +279,35 @@ const ProjectDetail = () => {
             </div>
             
             <div className="space-y-8">
-              <div className="glass-card rounded-xl p-6">
+              <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
                 <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
                 <p className="text-gray-300">{project.overview}</p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="glass-card rounded-xl p-6">
+                <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
                   <h2 className="text-xl font-bold mb-4 flex items-center">
-                    <Target className="mr-3 text-pm-purple" /> The Challenge
+                    <Target className="mr-3 text-pm-blue" /> The Challenge
                   </h2>
                   <p className="text-gray-300">{project.challenge}</p>
                 </div>
                 
-                <div className="glass-card rounded-xl p-6">
+                <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
                   <h2 className="text-xl font-bold mb-4 flex items-center">
-                    <Lightbulb className="mr-3 text-pm-purple" /> The Solution
+                    <Lightbulb className="mr-3 text-pm-blue" /> The Solution
                   </h2>
                   <p className="text-gray-300">{project.solution}</p>
                 </div>
               </div>
               
-              <div className="glass-card rounded-xl p-6">
+              <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
                 <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <BarChart className="mr-3 text-pm-purple" /> Results & Impact
+                  <BarChart className="mr-3 text-pm-blue" /> Results & Impact
                 </h2>
                 <ul className="space-y-2">
                   {project.results.map((result, index) => (
                     <li key={index} className="flex items-start">
-                      <CheckCircle className="text-pm-purple mr-3 mt-1 flex-shrink-0" size={18} />
+                      <CheckCircle className="text-pm-blue mr-3 mt-1 flex-shrink-0" size={18} />
                       <span className="text-gray-300">{result}</span>
                     </li>
                   ))}
@@ -299,14 +315,14 @@ const ProjectDetail = () => {
               </div>
               
               {project.testimonial && (
-                <div className="glass-card rounded-xl p-6">
+                <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
                   <h2 className="text-2xl font-bold mb-4">Testimonial</h2>
-                  <blockquote className="border-l-4 border-pm-purple pl-4 italic text-gray-300">
+                  <blockquote className="border-l-4 border-pm-blue pl-4 italic text-gray-300">
                     "{project.testimonial.quote}"
                   </blockquote>
                   <div className="mt-4">
                     <p className="font-medium text-white">{project.testimonial.author}</p>
-                    <p className="text-sm text-pm-gray">{project.testimonial.position}</p>
+                    <p className="text-sm text-gray-400">{project.testimonial.position}</p>
                   </div>
                 </div>
               )}
@@ -314,13 +330,13 @@ const ProjectDetail = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
               <h3 className="text-xl font-bold mb-4">Project Details</h3>
               
               <div className="space-y-4">
                 <div>
                   <div className="flex items-center mb-2">
-                    <Calendar size={18} className="text-pm-purple mr-2" />
+                    <Calendar size={18} className="text-pm-blue mr-2" />
                     <h4 className="font-medium text-white">Timeline</h4>
                   </div>
                   <p className="text-gray-300 ml-6">{project.timeline}</p>
@@ -328,7 +344,7 @@ const ProjectDetail = () => {
                 
                 <div>
                   <div className="flex items-center mb-2">
-                    <Users size={18} className="text-pm-purple mr-2" />
+                    <Users size={18} className="text-pm-blue mr-2" />
                     <h4 className="font-medium text-white">Team</h4>
                   </div>
                   <p className="text-gray-300 ml-6">{project.team}</p>
@@ -336,30 +352,30 @@ const ProjectDetail = () => {
               </div>
             </div>
             
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
               <h3 className="text-xl font-bold mb-4">Tools & Technologies</h3>
               <div className="flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
-                  <span key={tool} className="bg-pm-charcoal py-1.5 px-3 rounded-full text-sm">
+                  <span key={tool} className="bg-pm-charcoal hover:bg-pm-blue/20 transition-colors py-1.5 px-3 rounded-full text-sm">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
             
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
               <h3 className="text-xl font-bold mb-4">Key Features</h3>
               <ul className="space-y-2">
                 {project.keyFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="text-pm-purple mr-3 mt-1 flex-shrink-0" size={18} />
+                    <CheckCircle className="text-pm-blue mr-3 mt-1 flex-shrink-0" size={18} />
                     <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="glass-card rounded-xl p-6">
+            <div className="glass-card rounded-xl p-6 transform hover:translate-y-[-5px] transition-all duration-300">
               <h3 className="text-xl font-bold mb-4">Interested in similar work?</h3>
               <p className="text-gray-300 mb-4">
                 If you're looking for a product manager with experience in this area, let's connect and discuss how I can help your team achieve similar results.

@@ -10,8 +10,12 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-page pt-16">
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
+    <section className="relative min-h-screen flex items-center bg-gradient-page pt-16 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/3 right-10 w-64 h-64 bg-pm-blue/20 rounded-full filter blur-3xl" />
+        <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-pm-teal/20 rounded-full filter blur-3xl" />
+      </div>
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div 
             className={`space-y-6 transform transition-all duration-1000 ${
@@ -32,29 +36,32 @@ const HeroSection = () => {
               <a href="#contact" className="btn-secondary">Let's Connect</a>
             </div>
           </div>
+          
           <div 
             className={`relative transform transition-all duration-1000 delay-300 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            <div className="relative w-full h-[440px] flex flex-col items-center">
-              <div className="absolute inset-0 bg-gradient-to-tr from-pm-blue/20 to-pm-teal/20 rounded-2xl" />
-              <div className="absolute inset-4 glass-card rounded-2xl overflow-hidden flex flex-col items-center justify-center">
-                <div className="h-72 w-72 rounded-full overflow-hidden border-4 border-pm-blue/30 mb-6">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" 
-                    alt="Product Manager" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Product Management Skills</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 px-4">
-                  {['User Research', 'Strategy', 'Roadmapping', 'Data Analysis', 'Team Leadership', 'Agile'].map((skill) => (
-                    <div key={skill} className="bg-white/5 rounded-lg p-3">
-                      <span className="text-sm">{skill}</span>
-                    </div>
-                  ))}
-                </div>
+            <div className="relative flex justify-center items-center">
+              {/* 3D Floating Image Effect */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-pm-blue to-pm-teal opacity-20 blur-lg animate-pulse"></div>
+              <div className="relative w-72 h-72 rounded-full border-4 border-white/10 overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmVzc2lvbmFsJTIwbWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" 
+                  alt="Product Manager" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Floating elements */}
+              <div className="absolute top-0 -right-8 p-3 glass-card rounded-lg rotate-6 animate-[pulse_4s_ease-in-out_infinite]">
+                <div className="text-sm font-medium">Product Strategy</div>
+              </div>
+              <div className="absolute bottom-0 -left-8 p-3 glass-card rounded-lg -rotate-6 animate-[pulse_4s_ease-in-out_infinite_1s]">
+                <div className="text-sm font-medium">Data-Driven</div>
+              </div>
+              <div className="absolute top-1/2 -right-12 p-3 glass-card rounded-lg rotate-12 animate-[pulse_4s_ease-in-out_infinite_0.5s]">
+                <div className="text-sm font-medium">User-Focused</div>
               </div>
             </div>
           </div>

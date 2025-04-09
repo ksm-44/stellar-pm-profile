@@ -83,8 +83,12 @@ const ProjectsSection = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 px-4 md:px-6">
-      <div className="container mx-auto">
+    <section id="projects" className="py-20 px-4 md:px-6 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-20 right-0 w-72 h-72 bg-pm-blue/10 rounded-full filter blur-3xl z-0" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 bg-pm-teal/10 rounded-full filter blur-3xl z-0" />
+      
+      <div className="container mx-auto relative z-10">
         <h2 className="section-heading">My Projects</h2>
         
         <div className="flex flex-wrap justify-center gap-2 mt-10 mb-12">
@@ -94,7 +98,7 @@ const ProjectsSection = () => {
               onClick={() => setActiveCategory(category)}
               className={`py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-pm-blue text-white'
+                  ? 'bg-pm-blue text-white shadow-md shadow-pm-blue/20'
                   : 'bg-pm-charcoal text-gray-300 hover:bg-pm-blue/20'
               }`}
             >
@@ -107,7 +111,7 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
-              className="glass-card rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in"
+              className="glass-card rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in gradient-border"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="h-48 overflow-hidden">
@@ -139,14 +143,14 @@ const ProjectsSection = () => {
                     to={`/project/${project.id}`} 
                     className="inline-flex items-center text-pm-blue hover:text-pm-teal transition-colors"
                   >
-                    View Details <ChevronRight size={16} className="ml-1" />
+                    View Details <ChevronRight size={16} className="ml-1 group-hover:ml-2 transition-all" />
                   </Link>
                   {project.demoUrl && (
                     <a 
                       href={project.demoUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="text-pm-gray hover:text-white transition-colors inline-flex items-center"
+                      className="text-pm-teal hover:text-white transition-colors inline-flex items-center"
                     >
                       Demo <ExternalLink size={14} className="ml-1" />
                     </a>
