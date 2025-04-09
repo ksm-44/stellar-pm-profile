@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-page">
+    <div className="min-h-screen bg-gradient-page text-white font-sans">
       <Navbar />
       <HeroSection />
       <AboutSection />

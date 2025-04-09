@@ -53,16 +53,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Updated portfolio colors (removed purple, enhanced blue/teal theme)
+				// Updated monochromatic color palette
 				pm: {
-					dark: "#0F172A", // Dark blue background
-					darker: "#070F1C", // Deeper blue for sections
-					charcoal: "#1E293B", // Slate blue for cards
-					blue: "#3B82F6", // Bright blue for primary actions
-					lightBlue: "#60A5FA", // Lighter blue accent
-					teal: "#06B6D4", // Teal accent
-					gray: "#94A3B8", // Slate gray
-					lightGray: "#CBD5E1", // Light slate
+					dark: "#121212", // Dark background
+					darker: "#0A0A0A", // Deeper dark for sections
+					charcoal: "#1E1E1E", // Dark charcoal for cards
+					gray: "#888888", // Medium gray
+					lightGray: "#CCCCCC", // Light gray
+					offWhite: "#F5F5F5", // Almost white
+					accent: "#333333", // Dark accent
+					highlight: "#FFFFFF", // White highlight
 				},
 			},
 			borderRadius: {
@@ -107,34 +107,43 @@ export default {
 						opacity: '1'
 					}
 				},
-        'float': {
-          '0%, 100%': {
-            transform: 'translateY(0)'
-          },
-          '50%': {
-            transform: 'translateY(-10px)'
-          }
-        },
-        'pulse-slow': {
-          '0%, 100%': {
-            opacity: '1'
-          },
-          '50%': {
-            opacity: '0.7'
-          }
-        }
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'pulse-slow': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.7'
+					}
+				},
+				'reveal': {
+					'0%': {
+						transform: 'scaleX(0)'
+					},
+					'100%': {
+						transform: 'scaleX(1)'
+					}
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'slide-in': 'slide-in 0.5s ease-out forwards',
-        'float': 'float 3s ease-in-out infinite',
-        'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+				'reveal': 'reveal 0.6s ease-out forwards'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				heading: ['Poppins', 'sans-serif'],
+				heading: ['Sora', 'sans-serif'],
 			},
 		}
 	},
