@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Send, Mail, Linkedin, GitHub, Twitter } from 'lucide-react';
+import { Send, Mail, Linkedin, Github, Twitter } from 'lucide-react';
 import { toast } from "sonner";
 
 const ContactSection = () => {
@@ -64,7 +63,7 @@ const ContactSection = () => {
                 <Linkedin size={20} className="text-white" />
               </a>
               <a href="#" className="w-12 h-12 rounded-full bg-pm-charcoal flex items-center justify-center hover:bg-pm-purple/20 transition-all">
-                <GitHub size={20} className="text-white" />
+                <Github size={20} className="text-white" />
               </a>
               <a href="#" className="w-12 h-12 rounded-full bg-pm-charcoal flex items-center justify-center hover:bg-pm-purple/20 transition-all">
                 <Twitter size={20} className="text-white" />
